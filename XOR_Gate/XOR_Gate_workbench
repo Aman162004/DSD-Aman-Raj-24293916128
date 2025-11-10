@@ -1,0 +1,31 @@
+`timescale 1ns / 1ps
+
+module tb_XOR; // Added module definition
+
+reg a, b;
+wire y;
+
+// Instantiate the DUT
+XOR_gate uut(
+  .a(a),
+  .b(b),
+  .y(y)
+);
+
+
+initial begin
+
+  // Dump waves to see in EPWave
+  $dumpfile("dump.vcd");
+  $dumpvars(0, tb_XOR); //tb_XOR
+  
+  // Apply test vectors
+  a = 0; b = 0; #10;
+  a = 0; b = 1; #10;
+  a = 1; b = 0; #10;
+  a = 1; b = 1; #10;
+
+  $finish;
+end
+
+endmodule
