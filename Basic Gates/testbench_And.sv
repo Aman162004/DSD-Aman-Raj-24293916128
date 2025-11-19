@@ -1,16 +1,15 @@
-module tb_AND;
-  
-  reg a, b;
-  wire y;
+`timescale 1ns / 1ps
 
-  // Instantiate the Design Under Test (DUT)
-  AND_gate uut (
-    .a(a), 
-    .b(b), 
-    .y(y)
-  );
+module tb_AND(
 
-  initial begin
+    );
+    
+reg a, b;
+wire y;
+
+AND_gate uut(a, b, y);
+
+initial begin
     // Dump waves to see in EPWave
     $dumpfile("dump.vcd");
     $dumpvars(0, tb_AND);
