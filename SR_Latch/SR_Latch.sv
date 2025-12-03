@@ -7,7 +7,7 @@ module sr_latch(
     output Q_bar    
 );
 
-    assign Q = ~(R | Q_bar);
-    assign Q_bar = ~(S | Q);
+    assign Q = ~(R & Q_bar);
+    assign Q_bar = ~(S & Q);
 
 endmodule 
